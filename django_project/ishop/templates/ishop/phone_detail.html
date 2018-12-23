@@ -1,0 +1,73 @@
+{% extends "ishop/base.html" %}
+{% load static %}
+{% block css-includes %}
+	<link rel="stylesheet" href="{% static 'ishop/styles/phone_detail.css' %}">
+{% endblock css-includes %}
+{% block content %}
+	<arcticle class="media content-section">
+		<img class="rounded-circle arcticle-img" src="{{ object.author.profile.image.url }}" alt="">
+		<div class="media-body">
+			<div class="arcticle-metadata">
+				<div class="media-body"><img src="{{object.phone_image.url}}" alt="phone-photo" class="img-thumbnail account-img">
+				
+					<h2 class="account-heading">{{object.phone_brand}} {{object.phone_model}}</h2>
+				</div>
+				<div class="buy-box">
+					<span class="price">{{object.phone_price.normalize}}</span>
+					<span class="currency">грн.</span>
+					<a class="btn btn-dark price-button" href="#">Купить</a>
+				</div>
+				{% if user.is_staff %}
+					<div>
+						<a href="{% url 'ishop:phone-update' object.pk %}" class="btn btn-secondary btn-sm mt-1 mb-1">Изменить</a>
+						<a href="{% url 'ishop:phone-delete' object.pk %}" class="btn btn-danger btn-sm mt-1 mb-1">Удалить</a>
+					</div>
+				{% endif %}
+			</div>
+			<p class="arcticle-content">
+				<span class="descrip-text">Разрешение дисплея:</span> {{object.phone_resolution}}
+			</p>
+			<p class="arcticle-content">
+				<span class="descrip-text">Камера:</span> {{object.phone_camera}}
+			</p>
+			<p class="arcticle-content">
+				<span class="descrip-text">Диагональ экрана:</span> {{object.phone_diagonal}}
+			</p>
+		</div>
+	</arcticle>
+
+	<div class="comments">
+		<a id="add-comment" class="btn btn-info" href="{% url 'ishop:add_comment_to_phone' pk=phone.pk %}">Добавить комментарий</a>
+		{% for comment in phone.comments.all %}
+			<arcticle class="media content-section">
+				<img class="rounded-circle arcticle-img" src="{{ comment.author.profile.image.url }}" style="max-width:70px;max-height:70px;">
+				<div class="media-body">
+					<div class="arcticle-metadata">
+						<a href="{% url 'ishop:user-comments' comment.author.username %}" class="mr-2">{{ comment.author }}</a>
+						<small class="text-muted">{{ comment.date_posted|date:"H:i, F d, Y" }}</small>
+					</div>
+					<p class="arcticle-content">{{ comment.content|linebreaks }}</p>
+				</div>
+			</arcticle>
+		{% empty %}
+			<p>Комментариев нету :(<br>Будьте первым!</p>
+		{% endfor %}
+		{% if is_paginated %}
+			{% if page_obj.has_previous %}
+				<a href="?page=1" class="btn btn-outline-info mb-4">first</a>
+				<a href="?page={{page_obj.previous_page_number}}" class="btn btn-outline-info mb-4">previous</a>
+			{% endif %}
+			{% for num in page_obj.paginator.page_range %}
+				{% if page_obj.number == num %}
+					<a href="?page={{num}}" class="btn btn-info mb-4">{{num}}</a>
+				{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+					<a href="?page={{num}}" class="btn btn-outline-info mb-4">{{num}}</a>
+				{% endif %}
+			{% endfor %}
+			{% if page_obj.has_next %}
+				<a href="?page={{page_obj.next_page_number}}" class="btn btn-info mb-4">Next</a>
+				<a href="?page={{page_obj.paginator.num_pages}}" class="btn btn-outline-info mb-4">Last</a>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock content %}

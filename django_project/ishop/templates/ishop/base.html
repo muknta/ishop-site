@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>IShop</title>
+	{% endif %}
+	<link rel="shortcut icon" href="{% static 'ishop/img/icon.png' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'ishop/styles/main.css' %}">
+	{% block css-includes %}{% endblock css-includes %}
+	{% load crispy_forms_tags %}
+</head>
+<body>
+	<div id="header">
+		<span class="logo"><a href="{% url 'ishop:index' %}">
+			<img src="{% static 'ishop/img/logo.png' %}">
+		</a></span>
+		<span class="headline"> <span class="mega">"Лучш"</span>&emsp;<i>&copy; Илон Маск</i> </span>
+		
+		<div class="contacts">
+			<span>Номер поддержки:<br>+38(099)999-99-**</span>
+		</div>
+	</div>
+	<div id="navi">
+		<ul>
+			<li class="left full"><a href="#laptops">НОУТБУКИ</a></li>
+			<li class="left full"><a href="{% url 'ishop:phones' %}">СМАРТФОНЫ</a></li>
+			<li class="left full"><a href="#tablets">ПЛАНШЕТЫ</a></li>
+			<li class="shortcut left">
+				<a class="hidden-button" href="#">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+				<div id="hidden">
+					<a href="#laptops">НОУТБУКИ</a>
+					<a href="{% url 'ishop:phones' %}">СМАРТФОНЫ</a>
+					<a href="#tablets">ПЛАНШЕТЫ</a>
+				</div>
+			</li>
+			<li class="left">
+				<form action="#"><input type="text" placeholder="Поиск..." name="search"></form>
+			</li>
+			<li class="right dropdown">
+				{% if user.is_authenticated %}
+					<a href="{% url 'profile' %}" class="btn btn-warning">Профиль</a>
+				{% elif not user.is_authenticated and not '/login/' in request.get_full_path %}
+	                <button type="button" data-toggle="dropdown" class="btn btn-warning">Вход</button>
+	                <ul class="dropdown-menu dropdown-menu-right mt-2">
+	                	<li class="px-3 py-2">
+	                    	<form method="POST" action="{% url 'login' %}" class="form">
+	                    		{% csrf_token %}
+	                            <div class="form-group">
+	                                <input type="text" name="username" autofocus="" class="textinput textInput form-control" required="" id="id_username" placeholder="Логин">
+	                            </div>
+	                            <div class="form-group">
+	                                <input type="password" name="password" class="textinput textInput form-control" required="" id="id_password" placeholder="Пароль">
+	                            </div>
+	                            <div class="form-group text-center">
+	                                <button type="submit" class="btn btn-success btn-block">Вайти</button>
+	                                <small><a href="{% url 'password_reset' %}">Забыли пароль?</a></small>
+	                            </div>
+	                            <div class="form-group" style="margin-bottom:0">
+	                                <a href="{% url 'register' %}" class="btn btn-danger btn-block">Зарегацца</a>
+	                            </div>
+	                        </form>
+	                    </li>
+	                </ul>
+	            {% else %}
+	            	<a href="{% url 'register' %}" class="btn btn-warning btn-block">Зарегацца</a>
+                {% endif %}
+            </li>
+		</ul>
+	</div>
+	{% if messages %}
+		<div class="row">
+			<div class="col-md-8">
+				{% if messages %}
+					{% for message in messages %}
+						<div class="alert alert-{{ message.tags }}">
+							{{ message }}
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+	
+	{% block content %}{% endblock content %}
+
+	<div id="footer">
+		<div class="foot-container">
+			<div>
+				<span class="headline">ООО "Алё"</span>
+				<br>
+				<a href="{% url 'ishop:about' %}">О нас</a>
+				<a href="{% url 'ishop:contacts' %}">Контакты</a>
+				<a href="{% url 'ishop:jobs' %}">Вакансии</a>
+			</div>
+			<div>
+				<span class="headline">Помошчь</span>
+				<br>
+				<a href="#q-a">Вопросы и ответы</a>
+				<a href="#delivery">Доставка и оплата</a>
+				<a href="#credit">Кредит</a>
+			</div>
+			<div>
+				<span class="headline">Качай, делись:</span>
+				<br>
+				<div class="img-download">
+					<a href="#google-play"><img src="{% static 'ishop/img/media/google-play-black.png' %}"></a>
+					<a href="#app-store"><img src="{% static 'ishop/img/media/app-store-black.png' %}"></a>
+				</div>
+				<div class="img-media">
+					<a href="#youtube"><img src="{% static 'ishop/img/media/youtube.png' %}"></a>
+					<a href="#facebook"><img src="{% static 'ishop/img/media/facebook.png' %}"></a>
+					<a href="#twitter"><img src="{% static 'ishop/img/media/twitter.png' %}"></a>
+					<a href="#instagram"><img src="{% static 'ishop/img/media/instagram.png' %}"></a>
+					<a href="#telegram"><img src="{% static 'ishop/img/media/telegram.png' %}"></a>
+				</div>
+			</div>
+		</div>
+		<span class="copy">&#169; OOO"Alyo", 2018</span>
+		<span class="rates"><a href="{% url 'ishop:currency' %}" target="_blank"><b>КУРС ВАЛЮТ</b></a></span>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="{% static 'ishop/scripts/main.js' %}"></script>
+{% block js-includes %}{% endblock js-includes %}
+
+</body>
+</html>

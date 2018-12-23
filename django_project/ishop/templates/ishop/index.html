@@ -1,0 +1,47 @@
+{% extends "ishop/base.html" %}
+{% load static %}
+{% block content %}
+	<div class="slideshow-container">
+		<div class="mySlides animFade">
+		  <img src="{% static 'ishop/img/slides/Apple-Watch3_W_2.jpg' %}">
+		</div>
+		<div class="mySlides animFade">
+		  <img src="{% static 'ishop/img/slides/Nomi_Ultra4_W_1.JPG' %}">
+		</div>
+		<div class="mySlides animFade">
+		  <img src="{% static 'ishop/img/slides/Xiaomi_Redmi6__W.jpg' %}">
+		</div>
+
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	</div>
+
+	<div class="dot-box">
+		<span class="dot" onclick="currentSlide(1)"></span> 
+		<span class="dot" onclick="currentSlide(2)"></span> 
+		<span class="dot" onclick="currentSlide(3)"></span> 
+	</div>
+
+
+	<div class="why-we">
+		<h1>Почему покупать на "Алё" выгодно?</h1>
+		<p>Всё просто! "Алё" на рынке электроники уже миллионы лет. Это лучший сервис в галактике. Мы предоставляем все спектры услуг, связанные со смартфонами/ноутбуками/планшетами. В том числе продажа <del>палёных</del> высококачественных <del>подделок</del> аксессуаров и многое другое...</p>
+		<p id="hidden-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis eveniet itaque unde excepturi quia alias autem cupiditate ducimus, labore quos tempore dolores nam aperiam ad. Laudantium quibusdam quos modi, in.</span>
+		<span>Eos dolore assumenda non quisquam molestias, aperiam quaerat. Ullam excepturi impedit quam ipsa, aliquam magnam laborum placeat quibusdam libero modi. Culpa iste doloremque mollitia ipsa, dignissimos unde! Quia quod, at?</span>
+		<span>Ipsam iure esse possimus mollitia recusandae cupiditate, consequatur tempora accusantium quo atque impedit eveniet expedita explicabo quia ullam voluptas quisquam blanditiis praesentium beatae vero consectetur ratione totam quis. Iure, omnis.</span>
+		<span>Fugiat cum quos, soluta cumque eligendi corporis architecto ex, aliquid, repellendus voluptas dolore est. Atque suscipit in porro repudiandae! Accusamus maxime quaerat perferendis, obcaecati ipsam dolore illo vitae aspernatur sint.</span>
+		<span>Vitae quis facere, dignissimos officia rerum autem dolorem, labore laboriosam accusamus sapiente, sunt eligendi obcaecati. Culpa nam, sunt doloremque iste atque! Dolorem dolor animi placeat qui explicabo, nesciunt assumenda beatae.</span>
+		<span>Eligendi non reiciendis optio consequatur inventore, laborum nobis, consectetur illum aliquid voluptatibus, commodi fugit quam modi magnam perspiciatis placeat. Consectetur eum similique nisi asperiores neque repellat pariatur vero corrupti velit.</span></p>
+		<a id="show-text">Показать полностью</a>
+	</div>
+
+	<div class="subscribe">
+		<form action="#">
+			<span>Подпишитесь для получения <span class="special-word">скидок</span>:</span>
+			<input type="text" placeholder="Ваш email.." name="email">
+		</form>
+	</div>
+{% endblock content %}
+{% block js-includes %}
+	<script src="{% static 'ishop/scripts/index.js' %}"></script>
+{% endblock js-includes %}

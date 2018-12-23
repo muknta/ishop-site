@@ -1,0 +1,20 @@
+.content-section {
+	padding: 30px 15%;
+}
+
+.media {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.media .account-img {
+	margin: 0 20px 25px 0;
+	max-width: 300px;
+	max-height: 300px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+}

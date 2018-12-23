@@ -1,0 +1,84 @@
+h2#current-curr {
+	text-align: center;
+}
+
+form.curr-form fieldset {
+	margin: 20px;
+}
+
+form.curr-form label#conv-result {
+	margin-left: 15px;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.line {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 3;
+}
+
+.overlay {
+	fill: none;
+	pointer-events: all;
+}
+
+.dot {
+    fill: #ffab00;
+    stroke: #fff;
+}
+
+.focus {
+	cursor: pointer;
+	fill: none;
+	stroke: steelblue;
+}
+
+svg {
+	top: 300px;
+	width: 100%;
+	position: absolute;
+}
+
+#editable-alias {
+	display: block;
+	width: 100%;
+	min-height: 257px;
+}
+
+
+
+
+
+
+
+
+
+/*
+.tooltip {
+  position: absolute;
+  padding: 4px 15px;
+  font-size: 10px;
+  color: #000;
+  height: 0px;
+  border: 1px solid;
+  border-radius: 2px;
+  height: auto;
+  width: auto;
+}
+.tooltip.hidden {
+  overflow: hidden;
+  opacity: 0;
+  padding: 0px;
+  border: 0px;
+  width: 0px;
+  height: 0px;
+}
+.tooltip.away {
+  background-color: #93BFD1;
+  border-color: #3E85A2;
+}
+.tooltip.home {
+  background-color: #FDEFD5;
+  border-color: #ECA31E;
+}*/

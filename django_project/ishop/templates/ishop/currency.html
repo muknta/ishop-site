@@ -1,0 +1,70 @@
+{% extends "ishop/base.html" %}
+{% load static %}
+{% block css-includes %}
+	<link rel="stylesheet" href="{% static 'ishop/styles/currency.css' %}">
+{% endblock css-includes %}
+
+{% block content %}
+	<form class='curr-form'>
+		<fieldset>
+			how_much
+			<input type="text" id="how-much" width="15px" required="">
+			from_cur
+			<input type="text" id="from-cur" width="7px" required="">
+			to_cur
+			<input type="text" id="to-cur" width="7px" required>
+			<input id="converter" type="button" value="calculate"/>
+			<label id="conv-result" name="result">result</label>
+		</fieldset>
+	</form>
+
+
+	<form class='curr-form'>
+		<fieldset>
+			<select id="cho-currency">
+				<option value="AUD">Australian Dollar (AUD)</option>
+				<option value="BGN">Bulgarian Lev (BGN)</option>
+				<option value="BRL">Brazilian Real (BRL)</option>
+				<option value="CAD">Canadian Dollar (CAD)</option>
+				<option value="CHF">Swiss Franc (CHF)</option>
+				<option value="CNY">Chinese Yuan (CNY)</option>
+				<option value="DKK">Danish Krone (DKK)</option>
+				<option value="GBP">British Pound (GBP)</option>
+				<option value="HKD">Hong Kong Dollar (HKD)</option>
+				<option value="HRK">Croatian Kuna (HRK)</option>
+				<option value="HUF">Hungarian Forint (HUF)</option>
+				<option value="IDR">Indonesian Rupiah (IDR)</option>
+				<option value="ILS">New Israeli Shekel (ILS)</option>
+				<option value="INR">Indian Rupee (INR)</option>
+				<option value="ISK">Icelandic Krona (ISK)</option>
+				<option value="JPY">Japanese Yen (JPY)</option>
+				<option value="KRW">Korean Won (KRW)</option>
+				<option value="LTL">Lithuanian Lita (LTL)</option>
+				<option value="MXN">Mexican Peso (MXN)</option>
+				<option value="MYR">Malaysian Ringgit (MYR)</option>
+				<option value="NOK">Norwegian Krone (NOK)</option>
+				<option value="NZD">New Zealand Dollar (NZD)</option>
+				<option value="PHP">Philippine Peso (PHP)</option>
+				<option value="PLN">Polish Zloty (PLN)</option>
+				<option value="RON">Romanian Leu (RON)</option>
+				<option value="RUB">Russian Rubble (RUB)</option>
+				<option value="SEK">Swedish Krona (SEK)</option>
+				<option value="SGD">Singapore Dollar (SGD)</option>
+				<option value="THB">Thai Baht (THB)</option>
+				<option value="TRY">Turkish Lira (TRY)</option>
+				<option value="USD">US Dollar (USD)</option>
+				<option value="ZAR">South African Rand (ZAR)</option>
+			</select>
+			<input id="set-currency" type="button" value="set currency"/>
+		</fieldset>
+	</form>
+
+	<h2 id="current-curr"></h2>
+	<!-- EMPTY SPACE for SVG -->
+	<div id="editable-alias"></div>
+{% endblock content %}
+
+{% block js-includes %}
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="{% static 'ishop/scripts/currency.js' %}"></script>
+{% endblock js-includes %}

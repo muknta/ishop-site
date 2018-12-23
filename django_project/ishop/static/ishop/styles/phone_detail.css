@@ -1,0 +1,40 @@
+.comments {
+	/*position: relative;*/
+	padding: 20px 0 20px 30px;
+	width: 100%;
+	border: 5px solid #848484;
+	border-radius: 5px;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.media-body img {
+	
+}
+
+arcticle.media img.rounded-circle {
+	margin-right: 10px;
+}
+
+.arcticle-content:not(.descrip-text) {
+	text-align: left;
+	font-size: 18px;
+	/*font-weight: bold;*/
+	line-height: 12px;
+}
+.arcticle-content .descrip-text {
+	font-size: 15px;
+	font-style: italic;
+}
+
+.account-img {
+	max-width:300px;
+	max-height:300px;
+	margin: 30px;
+}
+
+a#add-comment {
+	margin-bottom: 20px;
+}

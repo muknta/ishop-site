@@ -1,0 +1,128 @@
+{% extends "ishop/base.html" %}
+{% load static %}
+{% block css-includes %}
+	<link rel="stylesheet" href="{% static 'ishop/styles/phones.css' %}">
+{% endblock css-includes %}
+
+{% block content %}
+	<div class="flex-container">
+		<div class="filter">
+			<h2>ФИЛЬТР</h2>
+			<div class="item" id="price-filter">
+				<p>Цена</p>
+				<span>
+					<input id="from-price" type="text" placeholder="от">
+					<span>—</span>
+					<input id="to-price" type="text" placeholder="до">
+					<button id='price-submit'>OK</button>
+				</span>
+			</div>
+			<div id="brand-filter">
+				<a class="item dropdown-filter">Производитель</a>
+				<div id="brand-items">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="brand-check-1">
+						<label class="form-check-label" for="brand-check-1">
+							Default checkbox
+						</label>
+					</div>
+				</div>
+			</div>
+			<div id="resolution-filter">
+				<a class="item dropdown-filter">Разрешение дисплея</a>
+				<div id="resolution-items">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="resolution-check-1">
+						<label class="form-check-label" for="resolution-check-1">
+							Default checkbox
+						</label>
+					</div>
+				</div>
+			</div>
+			<div id="camera-filter">
+				<a class="item dropdown-filter">Камера</a>
+				<div id="camera-items">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="camera-check-1">
+						<label class="form-check-label" for="camera-check-1">
+							Default checkbox
+						</label>
+					</div>
+				</div>
+			</div>
+			<div id="diagonal-filter">
+				<a class="item dropdown-filter">Диагональ</a>
+				<div id="diagonal-items">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="diagonal-check-1">
+						<label class="form-check-label" for="diagonal-check-1">
+							Default checkbox
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-container">
+			{% if user.is_staff %}
+				<div class="admin-panel">
+					<a href="#" id="admin-refresh-btn" class="btn btn-outline-info">ОБНОВИТЬ</a>
+					<a href="{% url 'ishop:phone-create' %}"
+						id="admin-create-btn" class="btn btn-outline-danger">СОЗДАТЬ</a>
+				</div>
+			{% endif %}
+			<div class="items-container">
+				{% for phone in phones %}
+				<div id="item-{{phone.pk}}" class="item" onmouseover="disBlock('item-{{phone.pk}}')" onmouseout="disHide('item-{{phone.pk}}')">
+					<a href="{% url 'ishop:phone-detail' phone.pk %}"><img src="{{phone.phone_image.url}}" alt="phone-photo" style="max-width:200px;max-height:200px;"></a>
+					<ul class="color-box">
+						<li class="color-item" style="background-color:red"></li>
+						<li class="color-item" style="background-color:green"></li>
+						<li class="color-item active" style="background-color:black"></li>
+					</ul>
+					<a href="{% url 'ishop:phone-detail' phone.pk %}" class="device-name">{{phone.phone_brand}} {{phone.phone_model}}</a>
+					<ul class="buy-box">
+						<li><span class="price">{{phone.phone_price.normalize}}</span><span class="currency">грн.</span></li>
+						<li class="price-button"><a class="btn btn-dark" href="#">Купить</a></li>
+					</ul>
+					<a class="comment-count" href="{% url 'ishop:phone-detail' phone.pk %}">Комментарии: {{phone.comments.count}}</a>
+					<div class="hidden-specs">
+						<p class="arcticle-content">
+							<span class="descrip-text">Разрешение дисплея:</span> {{phone.phone_resolution}}
+						</p>
+						<p class="arcticle-content">
+							<span class="descrip-text">Камера:</span> {{phone.phone_camera}}
+						</p>
+						<p class="arcticle-content">
+							<span class="descrip-text">Диагональ экрана:</span> {{phone.phone_diagonal}}
+						</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="pages">
+			{% if is_paginated %}
+				{% if page_obj.has_previous %}
+					<a href="?page=1" class="btn btn-outline-secondary mb-4">Первая</a>
+					<a href="?page={{page_obj.previous_page_number}}" class="btn btn-outline-secondary mb-4">Пред.</a>
+				{% endif %}
+				{% for num in page_obj.paginator.page_range %}
+					{% if page_obj.number == num %}
+						<a href="?page={{num}}" class="btn btn-secondary mb-4">{{num}}</a>
+					{% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+						<a href="?page={{num}}" class="btn btn-outline-secondary mb-4">{{num}}</a>
+					{% endif %}
+				{% endfor %}
+				{% if page_obj.has_next %}
+					<a href="?page={{page_obj.next_page_number}}" class="btn btn-outline-secondary mb-4">След.</a>
+					<a href="?page={{page_obj.paginator.num_pages}}" class="btn btn-outline-secondary mb-4">Последняя</a>
+				{% endif %}
+			{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+
+{% block js-includes %}
+	<script src="{% static 'ishop/scripts/phones.js' %}"></script>
+	<script src="{% static 'ishop/scripts/api.js' %}"></script>
+{% endblock js-includes %}

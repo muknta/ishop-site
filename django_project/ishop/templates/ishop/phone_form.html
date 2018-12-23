@@ -1,0 +1,16 @@
+{% extends "ishop/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<div class="content-section" style="margin:50px 15%">
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Новый Смартфон</legend>
+				{{ form|crispy }}
+			</fieldset>
+			<div class="form-group">
+				<button class="btn" type="submit">Отправить</button>
+			</div>
+		</form>
+	</div>
+{% endblock content %}

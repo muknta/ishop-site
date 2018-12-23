@@ -1,0 +1,48 @@
+{% extends "ishop/base.html" %}
+{% load static %}
+{% block css-includes %}
+	<link rel="stylesheet" href="{% static 'ishop/styles/about.css' %}">
+{% endblock css-includes %}
+
+{% block content %}
+	<div class="content-container">
+		<div id="sidebar">
+			<ul>
+				<div class="li-active"><li>
+					<a class="active" href="{% url 'ishop:about' %}">
+					Про нас</a>
+				</li></div>
+				<li><a href="{% url 'ishop:contacts' %}">
+					Контакты</a></li>
+				<li><a href="{% url 'ishop:jobs' %}">
+					Вакансии</a></li>
+				<li><a href="q-a.html">
+					Вопросы и ответы</a></li>
+				<li><a href="#delivery">
+					Доставка и оплата</a></li>
+				<li><a href="#credit">
+					Кредит</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<hr>
+			<h1>Про нас</h1>
+			<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni quisquam laudantium. Assumenda in natus sed atque voluptatum, doloribus modi libero ipsa illum et? Voluptate minima magni cum, eos ipsum.</span>
+			<span>Provident earum incidunt voluptas quia praesentium consequuntur, itaque illum, cum corporis nulla nemo, doloremque voluptatem! Explicabo voluptate provident aperiam illo laborum eligendi minima magni pariatur et deleniti, aspernatur laudantium repellendus.</span>
+			<span>Minus ex repellat modi quibusdam quam ipsum deserunt fugit incidunt ipsam vitae maiores, eligendi error in similique, iusto non harum dicta accusantium consectetur aperiam repudiandae. Facere voluptatibus aut ea nihil.</span>
+			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero eos neque magni, consequuntur, blanditiis dolorem, explicabo molestias obcaecati tenetur sit quia cupiditate dolorum error. Modi officiis beatae, omnis odio repellat.</span>
+			<span>Eligendi, id, praesentium. Voluptatibus consectetur atque vitae esse, quidem saepe deleniti voluptatum distinctio excepturi culpa nobis, minima praesentium labore quisquam explicabo nostrum ab. Nemo itaque, harum commodi ipsum, in voluptatum!</span>
+			<span>Possimus, sunt? Suscipit dolorem possimus similique, blanditiis ut est officiis numquam, dicta perferendis at dolorum obcaecati in asperiores. Repudiandae similique sequi facilis, temporibus doloribus non quidem ipsam pariatur debitis enim.</span></p>
+			<hr>
+			<span class="centered">ООО "Алё" настолько же прогрессивная компания, как и рок-музыка этих ребят вместе взятых.</span>
+			<img src="{% static 'ishop/img/progrock.gif' %}" class="left-img">
+			<span class="centered">Если вы не верите — ниже график наших успехов.</span>
+			<img src="{% static 'ishop/img/bar-graph.jpg' %}" alt="true statistics" class="right-img">
+			<span class="centered">Как видите, прибыль растёт линейно, начиная ещё до Кайнозойской эры, аж до 2056 года (ибо наша команда смотрит в будущее). </span>
+			<hr>
+		</div>
+	</div>
+{% endblock content %}
+{% block js-includes %}
+	<script src="{% static 'ishop/scripts/info.js' %}"></script>
+{% endblock js-includes %}

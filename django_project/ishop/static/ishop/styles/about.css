@@ -1,0 +1,125 @@
+hr {
+	width: 100%;
+    display: block;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+    border-color: black;
+}
+
+.content-container {
+	display: flex;
+	flex-flow: row nowrap;
+	padding: 14px 0;
+}
+
+.sticky-navi + .content-container {
+	padding-top: 13px;
+}
+
+/*.sticky-navi + #sidebar {
+	padding-top: 10px;
+}*/
+
+.sticky-sidebar {
+	z-index: 1;
+	position: fixed;
+	top: 71px;
+	width: 100%;
+}
+
+.sticky-sidebar + .content {
+	padding-left: 330px;
+}
+
+#sidebar {
+	width: 250px;
+	float: left;
+	display: flex;
+}
+
+#sidebar li {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 5px 35px 5px 0px;
+	width: 250px;
+	border-radius: 0 30px 30px 0;
+	text-align: right;
+	/*background-color: black;*/
+}
+
+#sidebar .li-active li {
+	padding: 15px 35px 15px 0px;
+	margin: 5px 0;
+	background-color: black;
+}
+
+#sidebar li a {
+	/*padding: 10px 10px;*/
+
+	color: #252525;
+	text-decoration: none;
+	background-color: inherit;
+}
+
+#sidebar li .active {
+	color: white;
+}
+
+#sidebar a:hover {
+	color: red;
+}
+
+#sidebar .active:hover {
+	color: orange;
+}
+
+
+.content {
+	padding: 0 10% 0 80px;
+	/*width: auto;*/
+	/*height: 100%;*/
+	/*float: none;*/
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.content .centered {
+	align-self: center;
+}
+
+.content img {
+	width: 550px;
+	max-width: 100%; 
+	min-height: 100px;
+	flex-flow: row nowrap;
+	margin: 14px;
+	align-self: center;
+}
+
+
+#footer {
+	/*position: relative;*/
+	/*display: block;*/
+}
+
+
+@media screen and (max-width: 800px) {
+	.content-container {
+		flex-direction: column;
+	}
+
+	.sticky-sidebar {
+		position: static;
+		z-index: 0;
+	}
+	.sticky-sidebar + .content, .content {
+		padding: 0 30px;
+	}
+/*	#login-content {
+		display: flex;
+	}*/
+}

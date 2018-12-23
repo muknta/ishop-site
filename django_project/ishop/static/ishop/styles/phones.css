@@ -1,0 +1,211 @@
+.flex-container {
+	display: flex;
+	/*width: 100%;*/
+	flex-flow: row nowrap;
+}
+
+.content-container {
+	display: flex;
+	width: 80%;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.flex-container .create-button {
+	margin-top: 20px;
+}
+
+.flex-container .pages {
+	flex: 1 100%;
+	text-align: center;
+}
+
+.filter #brand-items,
+.filter #resolution-items,
+.filter #camera-items,
+.filter #diagonal-items {
+	display: none;
+}
+
+.flex-container > .filter {
+	width: auto;
+	padding: 20px 30px;
+	border-right: 3px solid #000;
+}
+
+.flex-container > .filter div {
+	padding: 10px 0;
+}
+
+.filter #price-filter span {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.filter > div a.dropdown-filter,
+.filter #price-filter p {
+	color: darkblue;
+}
+.filter > div a.dropdown-filter:hover {
+	color: darkred;
+}
+
+.filter #price-filter > span button,
+.filter #price-filter > span input[type=text] {
+	margin: 0 5px;
+	padding: 2px 5px;
+	border-radius: 3px;
+}
+
+.filter input[type=text] {
+	width: 60px;
+}
+
+.content-container .admin-panel {
+	padding-top: 20px;
+}
+.content-container .admin-panel a:not(:last-child) {
+	margin-right: 20px;
+}
+
+.content-container > .items-container {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 20px 5%;
+	width: 100%;
+	
+	justify-content: space-around;
+}
+
+.items-container .item {
+	position: relative;
+	display: block;
+	width: 330px;
+	height: 420px;
+	margin: 15px 5px;
+	padding: 40px 40px 40px;
+	background-color: white;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5) ;
+}
+
+.items-container .comment-count {
+	padding: 15px 0 0;
+}
+
+.items-container .item .hidden-specs {
+	margin-top: 17px;
+	padding: 0px 20px;
+	background-color: white;
+	box-shadow: 0 -10px 0px 0px #fff,
+		0 0 10px rgba(0,0,0,0.5),
+		0 20px 20px -20px rgba(0,0,0,0.5) inset;
+	overflow: hidden;
+	max-height: 0;
+}
+
+
+.items-container .hidden-specs p:not(.descrip-text) {
+	text-align: left;
+	font-size: 18px;
+	/*font-weight: bold;*/
+	line-height: 12px;
+}
+.items-container .hidden-specs .descrip-text {
+	font-size: 15px;
+	font-style: italic;
+}
+
+.items-container .item:hover {
+	box-shadow: 0 0 30px rgba(0,0,0,0.5);
+	/*height: auto;*/
+}
+
+.items-container .item:hover .hidden-specs {
+	padding: 15px 20px 5px;
+	max-height: 500px;
+	transition: max-height 0.2s ease-in;
+}
+
+.items-container .item img {
+	height: 200px;
+}
+
+.items-container span.device-name {
+	font-size: 16px;
+}
+
+.items-container .item ul.color-box,
+.items-container .item ul.buy-box {
+	/*overflow: hidden;*/
+	display: flex;
+	justify-content: center;
+	/*width: 100%;*/
+	/*margin: 0;*/
+	padding: 0;
+}
+
+.items-container .item ul.color-box li,
+.items-container .item ul.buy-box li {
+	display: flex;
+	float: left;
+}
+
+.items-container ul.buy-box li {
+	width: 100%;
+	padding: 0 10%;
+}
+
+.items-container ul.color-box {
+	margin: 10px 0 15px;
+}
+
+.items-container ul.color-box li {
+	width: 17px;
+	height: 17px;
+	margin: 3px;
+	border-radius: 2px;
+	border: 1px solid black;
+}
+
+.items-container ul.color-box .active {
+	box-shadow: 0 0 20px black;
+}
+
+.items-container ul.buy-box .price,
+.items-container ul.buy-box .price-button a {
+	font-weight: bold;
+}
+
+.items-container ul.buy-box .price {
+	font-size: 33px;
+	padding-top: 29px;
+}
+
+.items-container ul.buy-box .currency {
+	font-size: 18px;
+	padding-top: 35px;
+}
+
+.items-container ul.buy-box .price-button {
+	padding-top: 20px;
+}
+
+
+/*@-webkit-keyframes drop-specs {
+	from {height:0}
+	to {height:60px}
+}*/
+
+@keyframes drop-specs {
+	0% {height:0}
+	100% {height:max-height}
+}
+
+
+@media screen and (max-width: 800px) {
+	.items-container .item .hidden-specs {
+		margin-top: 16px;
+	}
+}

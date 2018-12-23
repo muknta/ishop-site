@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Работа</title>
+	<link rel="shortcut icon" href="img/icon.png">
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/about.css">
+	<!-- <script src="scripts/scripts.js"></script> -->
+</head>
+<body>
+
+	<div id="header">
+		<a class="logo-link" href="index.html">
+			<img class="logo" src="img\logo.png">
+		</a>
+		<span class="headline"> <span class="mega">"Лучш"</span>&emsp;<i>&copy; Илон Маск</i> </span>
+		
+		<div class="contacts">
+			<span>Номер поддержки:<br>+38(099)999-99-**</span>
+		</div>
+	</div>
+	<div id="navi">
+		<ul>
+			<li class="left full text"><a href="#laptops">НОУТБУКИ</a></li>
+			<li class="left full text"><a href="#smartphones">СМАРТФОНЫ</a></li>
+			<li class="left full text"><a href="#tablets">ПЛАНШЕТЫ</a></li>
+			<li class="shortcut left">
+				<a href="#">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+				<ul id="hidden">
+					<li class=""><a href="#laptops">НОУТБУКИ</a></li>
+					<li class=""><a href="#smartphones">СМАРТФОНЫ</a></li>
+					<li class=""><a href="#tablets">ПЛАНШЕТЫ</a></li>
+				</ul>
+			</li>
+
+			<li class="left">
+				<form action="#"><input type="text" placeholder="Поиск..." name="search"></form>
+			</li>
+
+
+			<li class="right text" id="entrance"><a id="login-trigger" href="javascript:check_log()">Вход</a>
+				<ul id="login-content">
+					<li><form>
+			            <input id="username" type="text" name="l" placeholder="Логин" required>
+			            <input id="password" type="password" name="p" placeholder="Пароль" required>
+			            <input type="submit" onclick="check_name()" id="submit" value="Войти">
+			            <a href="#">
+						   <input type="button" id="register" value="Зарегистр." />
+						</a>
+		            </form></li>
+			    </ul>
+			</li>
+			<li id="greeting"><span>Здравствуйте, <p id="name"></p></span></li>
+			<li class="right img">
+				<a href="#comparison"><img src="img\balance31px.png" alt="comparison"></a>
+			</li>
+			<li class="right img">
+				<a href="#shopping-cart"><img src="img\shopping-cart100.png" alt="shopping-cart"></a>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<div class="content-container">
+		<div id="sidebar">
+			<ul>
+				<li><a href="about.html">
+					Про нас</a></li>
+				<li><a href="contacts.html">
+					Контакты</a></li>
+				<div class="li-active"><li>
+					<a class="active" href="jobs.html">
+					Вакансии</a>
+				</li></div>
+				<li><a href="q-a.html">
+					Вопросы и ответы</a></li>
+				<li><a href="#delivery">
+					Доставка и оплата</a></li>
+				<li><a href="#credit">
+					Кредит</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<hr>
+			<h1>Контакты</h1>
+			<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure magni quisquam laudantium. Assumenda in natus sed atque voluptatum, doloribus modi libero ipsa illum et? Voluptate minima magni cum, eos ipsum.</span>
+			<span>Provident earum incidunt voluptas quia praesentium consequuntur, itaque illum, cum corporis nulla nemo, doloremque voluptatem! Explicabo voluptate provident aperiam illo laborum eligendi minima magni pariatur et deleniti, aspernatur laudantium repellendus.</span>
+			<span>Minus ex repellat modi quibusdam quam ipsum deserunt fugit incidunt ipsam vitae maiores, eligendi error in similique, iusto non harum dicta accusantium consectetur aperiam repudiandae. Facere voluptatibus aut ea nihil.</span>
+			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero eos neque magni, consequuntur, blanditiis dolorem, explicabo molestias obcaecati tenetur sit quia cupiditate dolorum error. Modi officiis beatae, omnis odio repellat.</span>
+			<span>Eligendi, id, praesentium. Voluptatibus consectetur atque vitae esse, quidem saepe deleniti voluptatum distinctio excepturi culpa nobis, minima praesentium labore quisquam explicabo nostrum ab. Nemo itaque, harum commodi ipsum, in voluptatum!</span>
+			<span>Possimus, sunt? Suscipit dolorem possimus similique, blanditiis ut est officiis numquam, dicta perferendis at dolorum obcaecati in asperiores. Repudiandae similique sequi facilis, temporibus doloribus non quidem ipsam pariatur debitis enim.</span></p>
+			<hr>
+			<table>
+				<td>sad</td>
+				<td>gfgf</td>
+				<td>hjhgjgh</td>
+				<td>hjgkj</td>
+				<td>fghfg</td>
+			</table>
+		</div>
+	</div>
+
+
+
+	<div id="footer">
+		<div class="foot-container">
+			<ul class="main">
+				<li>
+					<ul>
+						<li class="headline">ООО "Алё"</li>
+						<li><br></li>
+						<li><a href="about.html">О нас</a></li>
+						<li><a href="contacts.html">Контакты</a></li>
+						<li><a href="jobs.html">Вакансии</a></li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li class="headline">Помошчь</li>
+						<li><br></li>
+						<li><a href="q-a.html">Вопросы и ответы</a></li>
+						<li><a href="#delivery">Доставка и оплата</a></li>
+						<li><a href="#credit">Кредит</a></li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li class="headline">Качай, делись:</li>
+						<li><br></li>
+						<li class="img-download">
+							<a href="#google-play"><img src="img\media\google-play-black.png"></a>
+							<a href="#app-store"><img src="img\media\app-store-black.png"></a>
+						</li>
+						<li class="img-media">
+							<a href="#youtube"><img src="img\media\youtube.png"></a>
+							<a href="#facebook"><img src="img\media\facebook.png"></a>
+							<a href="#twitter"><img src="img\media\twitter.png"></a>
+							<a href="#instagram"><img src="img\media\instagram.png"></a>
+							<a href="#telegram"><img src="img\media\telegram.png"></a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<span class="copy">&#169; OOO"Alyo", 2018</span>
+	</div>
+
+
+
+	<script>
+		function check_log() {
+			var c = document.getElementById("login-content");
+			if (c.style.display == "none") {
+				c.style.display = "flex";
+			} else {
+				c.style.display = "none";
+			}
+		}
+	</script>
+
+
+	<script>
+		function check_name() {
+			var entrance = document.getElementById("entrance");
+			var greeting = document.getElementById("greeting");
+			entrance.style.display = "none";
+			greeting.style.display = "block";
+		  	$("#name").text("Admin");
+
+			if (($('#username').val() == "admin"))
+			{
+				entrance.style.display = "none";
+				greeting.style.display = "block";
+			  	// $("#name").text($('#username').val());
+			}
+		}
+	</script>
+
+
+	<script>
+		window.onscroll = function() {stickyNavi(), stickyForm()};
+
+		var navi = document.getElementById("navi");
+		var sidebar = document.getElementById("sidebar");
+		var login = document.getElementById("login-content");
+		var hidden = document.getElementById("hidden");
+		var sticky = navi.offsetTop;
+
+		function stickyForm() {
+			if ((window.pageYOffset == 0) && (window.innerWidth <= 800)) {
+				login.style.display = "flex";
+			}
+		}
+
+		function stickyNavi() {
+			if (window.pageYOffset >= sticky) {
+				navi.classList.add("sticky-navi");
+				sidebar.classList.add("sticky-sidebar");
+				login.style.top = "55px";
+				hidden.style.top = "55px";
+			} else {
+				navi.classList.remove("sticky-navi");
+				sidebar.classList.remove("sticky-sidebar");
+				login.style.top = "155px";
+				hidden.style.top = "155px";
+			}
+		}
+	</script>
+
+	<script>
+		var navi = document.getElementById("navi");
+		var hidden = document.getElementById("hidden");
+		var sticky = navi.offsetTop;
+
+		function stickyMenu() {
+			if (window.pageYOffset >= sticky) {
+				hidden.style.top = "55px";
+			} else {
+				hidden.style.top = "155px";
+			}
+		}
+	</script>
+</body>
+</html>
